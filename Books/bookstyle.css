@@ -1,0 +1,200 @@
+/* Modern Dark-Themed Header */
+body {
+  margin: 0;
+  font-family: 'Lato', sans-serif; /* Modern sans-serif font for body text */
+  background-color: #1a1a1a; /* Dark background */
+  color: #f9f9f9; /* Light text */
+  line-height: 1.6; /* Better readability */
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px; /* More horizontal padding */
+  background-color: #222; /* Slightly lighter dark */
+  border-bottom: 2px solid #ffd700; /* Gold border */
+  position: sticky;
+  top: 0;
+  z-index: 1000; /* Ensure header stays on top */
+}
+
+/* Logo Styles */
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo-text {
+  font-size: 36px; /* Larger website name */
+  font-weight: 600; /* Semi-bold */
+  color: #f9f9f9; /* Light text */
+  font-family: 'Playfair Display', serif; /* Elegant serif font for logo */
+  letter-spacing: 2px; /* Slightly spaced letters for elegance */
+  text-transform: uppercase; /* Uppercase for a classic look */
+}
+
+/* Navigation Styles */
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 30px; /* More spacing between links */
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #f9f9f9; /* Light text */
+  font-size: 16px;
+  font-weight: 500; /* Medium weight */
+  padding: 8px 12px; /* Padding for clickable area */
+  border-radius: 4px; /* Rounded corners */
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+nav ul li a:hover {
+  background-color: #ffd700; /* Gold background on hover */
+  color: #1a1a1a; /* Dark text on hover */
+}
+
+/* Active Link Style */
+nav ul li a.active {
+  background-color: #ffd700; /* Gold background for active link */
+  color: #1a1a1a; /* Dark text for active link */
+}
+.cta-button {
+  padding: 12px 24px;
+  background-color: #ffd700; /* Gold button */
+  color: #1a1a1a; /* Dark text */
+  text-decoration: none;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: 600; /* Semi-bold */
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.cta-button:hover {
+  background-color: #e6b800; /* Darker gold on hover */
+  transform: translateY(-2px); /* Slight lift on hover */
+}
+header.sticky {
+  background-color: rgba(34, 34, 34, 0.9); /* Semi-transparent dark */
+  backdrop-filter: blur(10px); /* Blur effect */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); /* Shadow on scroll */
+}
+
+/* Scroll Animations for Sections */
+section {
+  opacity: 0; /* Start invisible */
+  transform: translateY(20px); /* Start slightly below */
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+
+/* Improved Button Animations */
+button, .cta-button, .challenge-link, .read-now {
+  transition: transform 0.1s ease, background-color 0.3s ease;
+}
+/* Start Reading Button */
+.read-now {
+  padding: 12px 24px;
+  background-color: #ffd700; /* Gold background */
+  color: #1a1a1a; /* Dark text */
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  text-decoration: none; /* Remove underline if it's a link */
+  display: inline-block; /* Ensure it behaves like a button */
+}
+
+/* Hover Effect */
+.read-now:hover {
+  background-color: #e6b800; /* Darker gold on hover */
+  transform: translateY(-2px); /* Slight lift */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Subtle shadow */
+}
+
+/* Active State (when clicked) */
+.read-now:active {
+  transform: translateY(0); /* Reset lift */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3); /* Smaller shadow */
+}
+
+/* Focus State (for accessibility) */
+.read-now:focus {
+  outline: none; /* Remove default outline */
+  box-shadow: 0 0 0 3px rgba(255, 215, 0, 0.5); /* Gold glow */
+}
+.reading-interface {
+  padding: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.8;
+  font-size: 18px;
+}
+
+.reading-controls {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.reading-controls button {
+  padding: 10px 20px;
+  background-color: #ffd700;
+  color: #1a1a1a;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  margin: 0 10px;
+}
+
+.reading-controls button:hover {
+  background-color: #e6b800;
+}
+
+.book-content {
+  background-color: #222;
+  padding: 20px;
+  border-radius: 8px;
+  color: #f9f9f9;
+}
+/* Table Styles */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+table th, table td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #444;
+}
+
+table th {
+  background-color: #333;
+  color: #ffd700; /* Gold text for headers */
+}
+
+table tr:hover {
+  background-color: #444; /* Highlight row on hover */
+}
+footer {
+  background-color: #222; /* Slightly lighter dark */
+  color: #f9f9f9; /* Light text */
+  text-align: center;
+  padding: 20px;
+  border-top: 2px solid #ffd700; /* Gold border */
+}
+
+footer p {
+  margin: 5px 0; /* Spacing between paragraphs */
+  font-size: 14px;
+  color: #ccc; /* Light gray text */
+}
