@@ -185,6 +185,76 @@ table th {
 table tr:hover {
   background-color: #444; /* Highlight row on hover */
 }
+/* Book Reader Styles */
+.book-reader {
+  padding: 40px;
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: #222;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+#book-title {
+  font-size: 32px;
+  color: #ffd700;
+  margin-bottom: 20px;
+  text-align: center;
+  font-family: 'Playfair Display', serif;
+}
+
+.reader-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.reader-controls button {
+  padding: 12px 24px;
+  background-color: #ffd700;
+  color: #1a1a1a;
+  border: none;
+  border-radius: 30px; /* Rounded buttons */
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px; /* Space between icon and text */
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.reader-controls button:hover {
+  background-color: #e6b800;
+  transform: translateY(-2px);
+}
+
+.reader-controls button:disabled {
+  background-color: #666;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Progress Indicator */
+.progress-indicator {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 16px;
+  color: #ccc;
+}
+
+/* Book Content */
+.book-content {
+  font-size: 18px;
+  line-height: 1.8;
+  color: #f9f9f9;
+  white-space: pre-line; /* Preserve line breaks in text files */
+  padding: 20px;
+  background-color: #333;
+  border-radius: 8px;
+  margin-top: 20px;
+}
 footer {
   background-color: #222; /* Slightly lighter dark */
   color: #f9f9f9; /* Light text */
