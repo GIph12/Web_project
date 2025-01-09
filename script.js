@@ -17,7 +17,7 @@ sections.forEach(section => {
         }
       });
     },
-    { threshold: 0.3 } // Trigger when 30% of the section is visible
+    { threshold: 0.2 } // Trigger when 30% of the section is visible
   );
   observer.observe(section);
 });
