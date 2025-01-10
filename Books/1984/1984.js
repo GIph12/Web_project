@@ -55,7 +55,6 @@ nextChapterButton.addEventListener('click', () => {
 // Load the first chapter
 loadChapter(currentChapter);
 
-// In your JavaScript file or <script> section
 // Show the button when scrolling down
 window.addEventListener('scroll', function() {
   var btn = document.getElementById("go-top-btn");

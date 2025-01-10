@@ -1,19 +1,19 @@
-/* Modern Dark-Themed Header */
+
 body {
   margin: 0;
-  font-family: 'Lato', sans-serif; /* Modern sans-serif font for body text */
-  background-color: #1a1a1a; /* Dark background */
-  color: #f9f9f9; /* Light text */
-  line-height: 1.6; /* Better readability */
+  font-family: 'Lato', sans-serif; 
+  background-color: #1a1a1a; 
+  color: #f9f9f9; 
+  line-height: 1.6; 
 }
-
+/*----------------------------------HEADER-------------------------------------*/
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 40px; /* More horizontal padding */
-  background-color: #222; /* Slightly lighter dark */
-  border-bottom: 2px solid #ffd700; /* Gold border */
+  padding: 20px 40px; 
+  background-color: #222; 
+  border-bottom: 2px solid #ffd700; 
   position: sticky;
   top: 0;
   z-index: 1000; /* Ensure header stays on top */
@@ -27,12 +27,12 @@ header {
 }
 
 .logo-text {
-  font-size: 36px; /* Larger website name */
-  font-weight: 600; /* Semi-bold */
-  color: #f9f9f9; /* Light text */
-  font-family: 'Playfair Display', serif; /* Elegant serif font for logo */
-  letter-spacing: 2px; /* Slightly spaced letters for elegance */
-  text-transform: uppercase; /* Uppercase for a classic look */
+  font-size: 36px; 
+  font-weight: 600; 
+  color: #f9f9f9; 
+  font-family: 'Playfair Display', serif; 
+  letter-spacing: 3px; 
+  text-transform: uppercase; 
 }
 
 /* Navigation Styles */
@@ -41,48 +41,43 @@ nav ul {
   margin: 0;
   padding: 0;
   display: flex;
-  gap: 30px; /* More spacing between links */
+  gap: 30px; /* space between items */
 }
 
 nav ul li a {
-  text-decoration: none;
-  color: #f9f9f9; /* Light text */
+  text-decoration: none; /*to remove the underline*/
+  color: #f9f9f9; 
   font-size: 16px;
-  font-weight: 500; /* Medium weight */
-  padding: 8px 12px; /* Padding for clickable area */
+  font-weight: 500; 
+  padding: 8px 12px; 
   border-radius: 4px; /* Rounded corners */
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition: background-color 0.3s ease, color 0.3s ease; /*for smoother trans out of color*/
 }
 
 nav ul li a:hover {
-  background-color: #ffd700; /* Gold background on hover */
-  color: #1a1a1a; /* Dark text on hover */
+  background-color: #ffd700; /*  on hover color */
+  color: #1a1a1a; 
 }
 
-/* Active Link Style */
-nav ul li a.active {
-  background-color: #ffd700; /* Gold background for active link */
-  color: #1a1a1a; /* Dark text for active link */
-}
+/*----------------------------------AIM-------------------------------------*/
 
-/* Aim Section */
+
 .aim {
   padding: 80px 40px;
   text-align: center;
-  background-color: #1a1a1a; /* Dark background */
 }
 
 .aim h1 {
-  font-size: 48px; /* Large heading */
-  font-weight: 600; /* Semi-bold */
-  color: #f9f9f9; /* Light text */
-  font-family: 'Playfair Display', serif; /* Elegant serif font for headings */
+  font-size: 48px; /*heading*/
+  font-weight: 600; 
+  color: #f9f9f9; 
+  font-family: 'Playfair Display', serif; 
   margin-bottom: 20px;
 }
 
 .aim p {
   font-size: 18px;
-  color: #ccc; /* Light gray text */
+  color: #ccc; 
   max-width: 800px;
   margin: 0 auto 40px;
   line-height: 1.8; /* Better readability */
@@ -90,22 +85,24 @@ nav ul li a.active {
 
 .cta-button {
   padding: 12px 24px;
-  background-color: #ffd700; /* Gold button */
+  background-color: #ffd700; 
   color: #1a1a1a; /* Dark text */
   text-decoration: none;
   border-radius: 4px;
   font-size: 16px;
-  font-weight: 600; /* Semi-bold */
-  transition: background-color 0.3s ease, transform 0.3s ease;
+  font-weight: 600; 
+  transition: background-color 0.3s ease, transform 0.3s ease;  /*for smoother trans out of color*/
 }
 
 .cta-button:hover {
-  background-color: #e6b800; /* Darker gold on hover */
+  background-color: #e6b800; 
   transform: translateY(-2px); /* Slight lift on hover */
 }
+/*----------------------------------TEXT-------------------------------------*/
+
 /* Why Choose Us Section */
 .why-choose-us {
-  padding: 60px 40px;
+  padding: 60px 40px; /*between sections*/
   background-color: #1a1a1a;
   text-align: center;
 }
@@ -114,14 +111,12 @@ nav ul li a.active {
   font-size: 32px;
   font-weight: 600;
   color: #f9f9f9;
-  margin-bottom: 20px;
 }
 
 .reasons-grid {
   display: flex;
   justify-content: center;
   gap: 20px;
-  flex-wrap: wrap;
 }
 
 .reason {
@@ -129,19 +124,17 @@ nav ul li a.active {
   padding: 20px;
   border-radius: 8px;
   width: 300px;
-  text-align: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
 }
 
 .reason:hover {
-  transform: translateY(-10px); /* Lift effect */
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Shadow effect */
+  transform: translateY(-10px); 
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); 
 }
 
 .reason h3 {
   font-size: 20px;
   color: #ffd700;
-  margin-bottom: 10px;
 }
 
 .reason p {
@@ -149,10 +142,10 @@ nav ul li a.active {
   color: #ccc;
   line-height: 1.6;
 }
-/* Reading Statistics Section */
+/* facts Section */
 .reading-stats {
   padding: 60px 40px;
-  background-color: #222; /* Slightly lighter dark */
+  background-color: #222; 
   text-align: center;
 }
 
@@ -160,14 +153,12 @@ nav ul li a.active {
   font-size: 32px;
   font-weight: 600;
   color: #f9f9f9;
-  margin-bottom: 20px;
 }
 
 .stats-grid {
   display: flex;
   justify-content: center;
   gap: 20px;
-  flex-wrap: wrap;
 }
 
 .stat {
@@ -176,18 +167,17 @@ nav ul li a.active {
   border-radius: 8px;
   width: 250px;
   text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; 
 }
 
 .stat:hover {
-  transform: translateY(-10px); /* Lift effect */
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Shadow effect */
+  transform: translateY(-10px); 
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); 
 }
 
 .stat h3 {
   font-size: 36px;
-  color: #ffd700; /* Gold accent color */
-  margin-bottom: 10px;
+  color: #ffd700; 
 }
 
 .stat p {
@@ -206,7 +196,6 @@ nav ul li a.active {
   font-size: 32px;
   font-weight: 600;
   color: #f9f9f9;
-  margin-bottom: 20px;
 }
 
 .reading-challenges p {
@@ -221,7 +210,6 @@ nav ul li a.active {
   display: flex;
   justify-content: center;
   gap: 20px;
-  flex-wrap: wrap;
 }
 
 .challenge {
@@ -230,17 +218,17 @@ nav ul li a.active {
   border-radius: 8px;
   width: 300px;
   text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; 
 }
 
 .challenge:hover {
-  transform: translateY(-10px); /* Lift effect */
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Shadow effect */
+  transform: translateY(-10px); 
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); 
 }
 
 .challenge h3 {
   font-size: 24px;
-  color: #ffd700; /* Gold accent color */
+  color: #ffd700; 
   margin-bottom: 10px;
 }
 
@@ -263,7 +251,7 @@ nav ul li a.active {
 }
 
 .challenge-link:hover {
-  background-color: #e6b800; /* Darker gold on hover */
+  background-color: #e6b800; 
 }
 header.sticky {
   background-color: rgba(34, 34, 34, 0.9); /* Semi-transparent dark */
@@ -275,18 +263,16 @@ header.sticky {
 section {
   opacity: 0; /* Start invisible */
   transform: translateY(20px); /* Start slightly below */
-  transition: opacity 0.6s ease, transform 0.6s ease;
+  transition: opacity 0.6s ease, transform 1s ease;
 }
 
 
-/* Improved Button Animations */
-button, .cta-button, .challenge-link, .read-now {
-  transition: transform 0.1s ease, background-color 0.3s ease;
-}
+/*----------------------------------BROWSE SECTION-------------------------------------*/
+
 
 /* Browse Hero Section */
 .browse-hero {
-  background-color: #1a1a1a; /* Dark background */
+  background-color: #1a1a1a; 
   padding: 80px 20px;
   text-align: center;
 }
@@ -295,7 +281,6 @@ button, .cta-button, .challenge-link, .read-now {
   font-size: 48px;
   font-weight: 600;
   color: #f9f9f9;
-  margin-bottom: 10px;
 }
 
 .browse-hero p {
@@ -315,7 +300,6 @@ button, .cta-button, .challenge-link, .read-now {
   font-size: 32px;
   font-weight: 600;
   color: #f9f9f9;
-  margin-bottom: 20px;
 }
 
 .search-bar {
@@ -351,8 +335,8 @@ button, .cta-button, .challenge-link, .read-now {
 #search-button:hover {
   background-color: #e6b800;
 }
+/*----------------------------------BOOK GRID-------------------------------------*/
 
-/* Book Grid Section */
 .book-grid-section {
   padding: 60px 40px;
   background-color: #222;
@@ -363,7 +347,6 @@ button, .cta-button, .challenge-link, .read-now {
   font-size: 32px;
   font-weight: 600;
   color: #f9f9f9;
-  margin-bottom: 20px;
 }
 
 .book-grid {
@@ -465,7 +448,7 @@ button, .cta-button, .challenge-link, .read-now {
   font-size: 14px;
   color: #ccc;
 }
-/* Style for contact section */
+/*----------------------------------CONTACT SECTION-------------------------------------*/
 .contact-section {
   max-width: 1200px;
   margin: 40px auto;
@@ -503,14 +486,12 @@ button, .cta-button, .challenge-link, .read-now {
   font-family: 'Montserrat', sans-serif;
   font-size: 24px;
   color: #ffd700;
-  margin-bottom: 20px;
 }
 
 .contact-info p {
   font-size: 16px;
   line-height: 1.6;
   color: #f9f9f9;
-  margin-bottom: 20px;
 }
 
 .contact-info ul {
@@ -585,17 +566,17 @@ button, .cta-button, .challenge-link, .read-now {
   background-color: #e6b800;
   transform: translateY(-2px);
 }
-
+/*----------------------------------FOOTER-------------------------------------*/
 footer {
-  background-color: #222; /* Slightly lighter dark */
-  color: #f9f9f9; /* Light text */
+  background-color: #222; /*  lighter dark */
+  color: #f9f9f9; 
   text-align: center;
   padding: 20px;
-  border-top: 2px solid #ffd700; /* Gold border */
+  border-top: 2px solid #ffd700; /* yellow border */
 }
 
 footer p {
-  margin: 5px 0; /* Spacing between paragraphs */
+  margin: 5px 0; /* Spacing between para */
   font-size: 14px;
-  color: #ccc; /* Light gray text */
+  color: #ccc;
 }

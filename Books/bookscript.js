@@ -6,6 +6,8 @@ window.addEventListener('scroll', () => {
     header.classList.remove('sticky');
   }
 });
+
+
 const sections = document.querySelectorAll('section');
 sections.forEach(section => {
   const observer = new IntersectionObserver(
@@ -22,18 +24,8 @@ sections.forEach(section => {
   observer.observe(section);
 });
 
-const buttons = document.querySelectorAll('button, .cta-button, .challenge-link, .read-now');
-buttons.forEach(button => {
-  button.addEventListener('mousedown', () => {
-    button.style.transform = 'scale(0.95)';
-  });
-  button.addEventListener('mouseup', () => {
-    button.style.transform = 'scale(1)';
-  });
-  button.addEventListener('mouseleave', () => {
-    button.style.transform = 'scale(1)';
-  });
-});
+
+
 
 const progressBar = document.createElement('div');
 progressBar.style.position = 'fixed';
@@ -51,11 +43,12 @@ window.addEventListener('scroll', () => {
   const scrollPercentage = (scrollTop / scrollHeight) * 100;
   progressBar.style.width = `${scrollPercentage}%`;
 });
+
+
 const prevButton = document.getElementById('prev-page');
 const nextButton = document.getElementById('next-page');
 const content = document.querySelector('.book-content');
 
-// Get elements
 const chapterContent = document.getElementById('chapter-content');
 const prevChapterButton = document.getElementById('prev-chapter');
 const nextChapterButton = document.getElementById('next-chapter');
