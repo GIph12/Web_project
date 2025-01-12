@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Reading: The Great Gatsby - Robin Books</title>
-  <link rel="stylesheet" href="/Books/bookstyle.css">
+  <link rel="stylesheet" href="/Books/Readnowstyle.css">
   
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
@@ -23,34 +23,19 @@
     </nav>
   </header>
 
-  
+  <!-- Book Reader -->
   <section class="book-reader">
-    <h1 id="book-title">1984</h1>
+    <h1 id="book-title">The Great Gatsby</h1>
 
-    
+  <button id="loadChapter1"> Chapter 1</button>
+  <button id="loadChapter2"> Chapter 2</button>
+  <div id="content">Select a chapter to begin reading.</div>
+  <div id="progressBar"></div>
+  <button id="prev">Previous</button>
+  <button id="next">Next</button>
 
-    
-    <div class="reader-controls">
-      <button id="prev-chapter">
-        <i class="fas fa-arrow-left"></i> Previous
-      </button>
-      <button id="next-chapter">
-        Next <i class="fas fa-arrow-right"></i>
-      </button>
-    </div>
 
-    
-    <div class="book-content">
-      <p id="chapter-content">Loading chapter...</p>
-    </div>
-  </section>
-
-    
-  <button id="go-top-btn"><i class="fas fa-arrow-up"></i></button>
   
-  <footer>
-    <p>&copy; <span id="copyright-year"></span> Robin Books. All rights reserved.</p>
-  </footer>
 
   
   <script src="/Books/bookscript.js"></script>
