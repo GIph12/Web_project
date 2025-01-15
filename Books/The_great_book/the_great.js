@@ -41,11 +41,7 @@ function displayPage() {
   contentDiv.innerHTML = pages[currentPage] || 'No content available.';
 }
 
-// Update the progress bar
-function updateProgressBar() {
-  const progress = ((currentPage + 1) / pages.length) * 100;
-  document.getElementById('progressBar').style.width = `${progress}%`;
-}
+
 
 // Event listeners for loading chapters
 document.getElementById('loadChapter1').addEventListener('click', () => {
@@ -71,19 +67,4 @@ document.getElementById('next').addEventListener('click', () => {
     displayPage();
     updateProgressBar();
   }
-});
-
-// Show the button when scrolling down
-window.addEventListener('scroll', function() {
-  var btn = document.getElementById("go-top-btn");
-  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-      btn.style.display = "block";
-  } else {
-      btn.style.display = "none";
-  }
-});
-
-document.getElementById("go-top-btn").addEventListener('click', function(e) {
-  e.preventDefault();
-  window.scrollTo({top: 0, behavior: 'smooth'});
 });

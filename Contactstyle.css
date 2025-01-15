@@ -311,6 +311,7 @@ nav ul li a:active {
   color: var(--accent-color);
 }
 
+
 /* Footer */
 footer {
   background-color: var(--background-color);
@@ -329,3 +330,4 @@ footer p {
   letter-spacing: 1px;
   text-shadow: 1px 1px 0 var(--border-color);
 }
+

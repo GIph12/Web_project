@@ -28,18 +28,18 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
 
-  // Function to load the saved theme
+  // load the saved theme
   function loadTheme() {
     const savedTheme = localStorage.getItem('theme') || 'dark';
     setTheme(savedTheme);
     
   }
 
-  // Load the theme when the page loads
+  
   loadTheme();
 });
 
-// Scroll and Intersection Observer Logic (unchanged)
+// Scroll sticky
 const header = document.querySelector('header');
 window.addEventListener('scroll', () => {
   if (window.scrollY > 50) {
@@ -49,28 +49,15 @@ window.addEventListener('scroll', () => {
   }
 });
 
-const sections = document.querySelectorAll('section');
-sections.forEach(section => {
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.style.opacity = '1';
-          entry.target.style.transform = 'translateY(0)';
-        }
-      });
-    },
-    { threshold: 0.2 }
-  );
-  observer.observe(section);
-});
 
-// Search Logic (unchanged)
+
+// Search  
 const searchInput = document.getElementById('search-input');
 const searchButton = document.getElementById('search-button');
 const books = document.querySelectorAll('.book');
 
 const filterBooks = () => {
+
   const searchTerm = searchInput.value.trim().toLowerCase();
 
   books.forEach(book => {
@@ -99,3 +86,6 @@ searchInput.addEventListener('input', () => {
     });
   }
 });
+
+
+
