@@ -1,12 +1,92 @@
+:root {
+  --background-color: #2d2d2d; /* Dark charcoal gray background */
+  --text-color: #e0d7c7; /* Soft beige text */
+  --accent-color: #5f9ea0; /* Muted teal accent */
+  --card-background: #3a3a3a; /* Slightly lighter dark gray */
+  --card-text: #e0d7c7; /* Soft beige text */
+  --border-color: #000; /* Black border */
+}
+
+.light-mode {
+  --background-color: #f5f5dc; /* Soft beige background */
+  --text-color: #4a3f35; /* Dark brown text */
+  --accent-color: #5f9ea0; /* Same muted teal accent */
+  --card-background: #e0d7c7; /* Soft beige for cards */
+  --card-text: #4a3f35; /* Dark brown text for cards */
+  --border-color: #000; /* Black border (unchanged) */
+}
+
 /* Global Styles */
 body {
   margin: 0;
   font-family: 'Lato', sans-serif;
-  background-color: #1a1a1a; /* Dark background */
-  color: #f9f9f9; /* Light text color */
+  background-color: var(--background-color);
+  color: var(--text-color);
   line-height: 1.6;
-  box-shadow: 
-    0 0 0 4px #000; /* Outer black outline */
+  box-shadow: 0 0 0 4px var(--border-color);
+}
+/* Light/Dark Mode Toggle Button */
+.switch {
+  --input-focus: var(--accent-color); /* Use your accent color */
+  --font-color: var(--text-color); /* Use your text color */
+  --font-color-sub: var(--card-text); /* Use your card text color */
+  --bg-color: var(--background-color); /* Use your background color */
+  --bg-color-alt: var(--card-background); /* Use your card background color */
+  --main-color: var(--border-color); /* Use your border color */
+  --square-color: #f5f5dc; /* Light mode background color (soft beige) */
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  width: 50px;
+  height: 20px;
+  margin-left: -600px; /* Keep your existing position */
+}
+
+.toggle {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  box-sizing: border-box;
+  border-radius: 5px;
+  border: 2px solid var(--main-color);
+  box-shadow: 4px 4px var(--main-color);
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--bg-color);
+  transition: 0.3s;
+}
+
+.slider:before {
+  box-sizing: border-box;
+  position: absolute;
+  content: "";
+  height: 20px;
+  width: 20px;
+  border: 2px solid var(--main-color);
+  border-radius: 5px;
+  left: -2px;
+  bottom: 2px;
+  background-color: var(--square-color); /* Always use light mode color */
+  box-shadow: 0 3px 0 var(--main-color);
+  transition: 0.3s;
+}
+
+.toggle:checked + .slider {
+  background-color: var(--input-focus);
+}
+
+.toggle:checked + .slider:before {
+  transform: translateX(30px);
 }
 
 /* Header */
@@ -15,38 +95,38 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 20px 40px;
-  background-color: #222; /* Dark background */
+  background-color: var(--background-color);
   background-image: linear-gradient(rgba(255, 215, 0, 0.1) 1px, transparent 1px), 
                     linear-gradient(90deg, rgba(255, 215, 0, 0.1) 1px, transparent 1px);
-  background-size: 20px 20px; /* Grid size */
-  backdrop-filter: blur(10px); /* Blur effect for modern touch */
-  border-bottom: 4px solid #ffd700; /* Retro gold border */
+  background-size: 20px 20px;
+  backdrop-filter: blur(10px);
+  border-bottom: 4px solid var(--accent-color);
   position: sticky;
   top: 0;
   z-index: 1000;
-  box-shadow: 
-    0 2px 10px rgba(0, 0, 0, 0.3), /* Shadow on scroll */
-    0 0 0 4px #000; /* Outer black outline */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3), 0 0 0 4px var(--border-color);
 }
 
 .logo-text {
   font-size: 36px;
   font-weight: 600;
-  color: #ffd700; /* Retro gold text color */
-  font-family: 'Playfair Display', serif; /* Retro serif font */
+  color: var(--accent-color);
+  font-family: 'Playfair Display', serif;
   letter-spacing: 3px;
   text-transform: uppercase;
-  text-shadow: 
-    2px 2px 0 #000; /* Simple black shadow for cell-shaded effect */
+  text-shadow: 2px 2px 0 var(--border-color);
   transition: all 0.3s ease;
 }
 
 .logo-text:hover {
-  transform: scale(1.05); /* Slight zoom on hover */
-  text-shadow: 
-    2px 2px 0 #000, /* Simple black shadow for cell-shaded effect */
-    0 0 15px rgba(255, 215, 0, 0.8); /* Stronger glow on hover */
+  transform: scale(1.05);
+  text-shadow: 2px 2px 0 var(--border-color), 0 0 15px var(--accent-color);
 }
+.purple-n {
+  color: #A35C7A; /* Muted purple color */
+  text-shadow: 2px 2px 0 var(--border-color); /* Match the shadow of the logo text */
+}
+
 
 /* Navigation Styles */
 nav ul {
@@ -59,55 +139,50 @@ nav ul {
 
 nav ul li a {
   text-decoration: none;
-  color: #ffd700; /* Retro gold text color */
+  color: var(--accent-color);
   font-size: 16px;
-  font-family: 'Courier New', Courier, monospace; /* Retro font */
+  font-family: 'Courier New', Courier, monospace;
   font-weight: bold;
   padding: 8px 12px;
-  border: 2px solid #000; /* Black outline for cell-shaded effect */
+  border: 2px solid var(--border-color);
   border-radius: 4px;
   text-transform: uppercase;
   letter-spacing: 1px;
-  background-color: #ffd700; /* Retro gold background */
-  color: #1a1a1a; /* Dark text */
-  box-shadow: 
-    4px 4px 0 #9d8602; /* Simple shadow for depth */
+  background-color: var(--accent-color);
+  color: var(--background-color);
+  box-shadow: 4px 4px 0 #4a7a7a;
   transition: all 0.3s ease;
 }
 
 nav ul li a:hover {
-  background-color: #e6b800; /* Darker gold on hover */
-  box-shadow: 
-    4px 4px 0 #7b6801; /* Darker shadow on hover */
+  background-color: #e6b800;
+  box-shadow: 4px 4px 0 #7b6801;
 }
 
 nav ul li a:active {
-  transform: translateY(2px); /* Move the button down slightly */
-  box-shadow: 
-    2px 2px 0 #7b6801; /* Smaller shadow when clicked */
+  transform: translateY(2px);
+  box-shadow: 2px 2px 0 #7b6801;
 }
 
 /* Contact Section */
 .contact-section {
   padding: 80px 40px;
-  background-color: #1a1a1a; /* Dark background */
+  background-color: var(--background-color);
   text-align: center;
-  border-top: 4px solid #ffd700; /* Retro gold border */
-  border-bottom: 4px solid #ffd700;
-  box-shadow: 
-    0 0 0 4px #000; /* Outer black outline */
+  border-top: 4px solid var(--accent-color);
+  border-bottom: 4px solid var(--accent-color);
+  box-shadow: 0 0 0 4px var(--border-color);
 }
 
 .contact-section h2 {
   font-size: 32px;
   font-weight: 600;
-  color: #ffd700; /* Retro gold text color */
-  font-family: 'Playfair Display', serif; /* Retro serif font */
+  color: var(--accent-color);
+  font-family: 'Playfair Display', serif;
   text-transform: uppercase;
   letter-spacing: 2px;
   margin-bottom: 40px;
-  text-shadow: 
-    2px 2px 0 #000; /* Simple black shadow for cell-shaded effect */
+  text-shadow: 2px 2px 0 var(--border-color);
 }
 
 .contact-container {
@@ -119,15 +194,14 @@ nav ul li a:active {
 }
 
 .contact-form, .contact-info {
-  background-color: #222; /* Dark card background */
+  background-color: var(--card-background);
   padding: 30px;
   border-radius: 8px;
-  border: 2px solid #000; /* Black outline for cell-shaded effect */
+  border: 2px solid var(--border-color);
   width: 100%;
   max-width: 500px;
   text-align: left;
-  box-shadow: 
-    4px 4px 0 #ffd700; /* Simple gold shadow for depth */
+  box-shadow: 4px 4px 0 var(--accent-color);
 }
 
 /* Form Styling */
@@ -138,82 +212,75 @@ nav ul li a:active {
 .contact-form label {
   display: block;
   font-size: 14px;
-  color: #ffd700; /* Retro gold text color */
-  font-family: 'Courier New', Courier, monospace; /* Retro monospace font */
+  color: var(--accent-color);
+  font-family: 'Courier New', Courier, monospace;
   margin-bottom: 5px;
   text-transform: uppercase;
   letter-spacing: 1px;
-  text-shadow: 
-    1px 1px 0 #000; /* Simple black shadow for cell-shaded effect */
+  text-shadow: 1px 1px 0 var(--border-color);
 }
 
 .contact-form input, .contact-form textarea {
   width: 100%;
   padding: 10px;
-  border: 2px solid #000; /* Black outline for cell-shaded effect */
+  border: 2px solid var(--border-color);
   border-radius: 4px;
-  background-color: #1a1a1a; /* Dark background */
-  color: #f4f1de; /* Light retro text color */
-  font-family: 'Courier New', Courier, monospace; /* Retro monospace font */
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-family: 'Courier New', Courier, monospace;
   font-size: 14px;
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .contact-form input:focus, .contact-form textarea:focus {
-  border-color: #ffd700; /* Retro gold on focus */
-  box-shadow: 
-    0 0 8px rgba(255, 215, 0, 0.3), /* Soft glow on focus */
-    0 0 0 2px #000; /* Outer black outline */
+  border-color: var(--accent-color);
+  box-shadow: 0 0 8px rgba(95, 158, 160, 0.3), 0 0 0 2px var(--border-color);
   outline: none;
 }
 
 .contact-form textarea {
-  resize: vertical; /* Allow vertical resizing */
+  resize: vertical;
   min-height: 150px;
 }
 
 .submit-button {
   width: 100%;
   padding: 12px;
-  background-color: transparent; /* Transparent background */
-  color: #ffd700; /* Retro gold text color */
-  border: 2px solid #ffd700; /* Retro gold border */
+  background-color: transparent;
+  color: var(--accent-color);
+  border: 2px solid var(--accent-color);
   border-radius: 4px;
-  font-family: 'Courier New', Courier, monospace; /* Retro monospace font */
+  font-family: 'Courier New', Courier, monospace;
   font-weight: bold;
   text-transform: uppercase;
   cursor: pointer;
   transition: background-color 0.3s ease, color 0.3s ease;
-  box-shadow: 
-    4px 4px 0 #9d8602; /* Simple shadow for depth */
+  box-shadow: 4px 4px 0 #4a7a7a;
 }
 
 .submit-button:hover {
-  background-color: #ffd700; /* Retro gold background on hover */
-  color: #1a1a1a; /* Dark text on hover */
-  box-shadow: 
-    4px 4px 0 #7b6801; /* Darker shadow on hover */
+  background-color: #e6b800;
+  color: var(--background-color);
+  box-shadow: 4px 4px 0 #7b6801;
 }
 
 /* Contact Information Styling */
 .contact-info h3 {
   font-size: 24px;
-  color: #ffd700; /* Retro gold text color */
-  font-family: 'Courier New', Courier, monospace; /* Retro monospace font */
+  color: var(--accent-color);
+  font-family: 'Courier New', Courier, monospace;
   text-transform: uppercase;
   letter-spacing: 1px;
   margin-bottom: 20px;
-  text-shadow: 
-    1px 1px 0 #000; /* Simple black shadow for cell-shaded effect */
+  text-shadow: 1px 1px 0 var(--border-color);
 }
 
 .contact-info p {
   font-size: 16px;
-  color: #f4f1de; /* Light retro text color */
-  font-family: 'Courier New', Courier, monospace; /* Retro monospace font */
+  color: var(--text-color);
+  font-family: 'Courier New', Courier, monospace;
   margin-bottom: 20px;
-  text-shadow: 
-    1px 1px 0 #000; /* Simple black shadow for cell-shaded effect */
+  text-shadow: 1px 1px 0 var(--border-color);
 }
 
 .contact-info ul {
@@ -223,45 +290,42 @@ nav ul li a:active {
 
 .contact-info ul li {
   font-size: 14px;
-  color: #f4f1de; /* Light retro text color */
-  font-family: 'Courier New', Courier, monospace; /* Retro monospace font */
+  color: var(--text-color);
+  font-family: 'Courier New', Courier, monospace;
   margin-bottom: 15px;
-  text-shadow: 
-    1px 1px 0 #000; /* Simple black shadow for cell-shaded effect */
+  text-shadow: 1px 1px 0 var(--border-color);
 }
 
 .contact-info ul li i {
-  color: #ffd700; /* Retro gold icon color */
+  color: var(--accent-color);
   margin-right: 10px;
 }
 
 .contact-info ul li a {
-  color: #f4f1de; /* Light retro text color */
+  color: var(--text-color);
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
 .contact-info ul li a:hover {
-  color: #ffd700; /* Retro gold on hover */
+  color: var(--accent-color);
 }
 
 /* Footer */
 footer {
-  background-color: #1a1a1a; /* Dark background */
-  color: #f9f9f9;
+  background-color: var(--background-color);
+  color: var(--text-color);
   text-align: center;
   padding: 20px;
-  border-top: 4px solid #ffd700; /* Retro gold border */
-  font-family: 'Courier New', Courier, monospace; /* Retro monospace font */
-  box-shadow: 
-    0 0 0 4px #000; /* Outer black outline */
+  border-top: 4px solid var(--accent-color);
+  font-family: 'Courier New', Courier, monospace;
+  box-shadow: 0 0 0 4px var(--border-color);
 }
 
 footer p {
-  margin: 5px 0; /* Spacing between paragraphs */
+  margin: 5px 0;
   font-size: 14px;
-  color: #f4f1de; /* Light retro text color */
-  letter-spacing: 1px; /* Spaced-out letters */
-  text-shadow: 
-    1px 1px 0 #000; /* Simple black shadow for cell-shaded effect */
+  color: var(--text-color);
+  letter-spacing: 1px;
+  text-shadow: 1px 1px 0 var(--border-color);
 }

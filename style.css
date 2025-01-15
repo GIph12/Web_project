@@ -1,51 +1,130 @@
+:root {
+  --background-color: #2d2d2d; /* Dark charcoal gray background */
+  --text-color: #e0d7c7; /* Soft beige text */
+  --accent-color: #5f9ea0; /* Muted teal accent */
+  --card-background: #3a3a3a; /* Slightly lighter dark gray */
+  --card-text: #e0d7c7; /* Soft beige text */
+  --border-color: #000; /* Black border */
+}
+
+.light-mode {
+  --background-color: #f5f5dc; /* Soft beige background */
+  --text-color: #4a3f35; /* Dark brown text */
+  --accent-color: #5f9ea0; /* Same muted teal accent */
+  --card-background: #e0d7c7; /* Soft beige for cards */
+  --card-text: #4a3f35; /* Dark brown text for cards */
+  --border-color: #000; /* Black border (unchanged) */
+}
 /* Global Styles */
 body {
   margin: 0;
   font-family: 'Lato', sans-serif;
-  background-color: #1a1a1a; /* Dark background */
-  color: #f9f9f9; /* Light text color */
+  background-color: var(--background-color);
+  color: var(--text-color);
   line-height: 1.6;
-  box-shadow: 
-    0 0 0 4px #000; /* Outer black outline */
+  box-shadow: 0 0 0 4px var(--border-color);
+  transition: background-color 0.3s, color 0.3s;
+}
+/* Light/Dark Mode Toggle Button */
+/* Light/Dark Mode Toggle Button */
+.switch {
+  --input-focus: var(--accent-color); /* Use your accent color */
+  --font-color: var(--text-color); /* Use your text color */
+  --font-color-sub: var(--card-text); /* Use your card text color */
+  --bg-color: var(--background-color); /* Use your background color */
+  --bg-color-alt: var(--card-background); /* Use your card background color */
+  --main-color: var(--border-color); /* Use your border color */
+  --square-color: #f5f5dc; /* Light mode background color (soft beige) */
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  width: 50px;
+  height: 20px;
+  margin-left: -600px; /* Keep your existing position */
 }
 
-/* Header */
+.toggle {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  box-sizing: border-box;
+  border-radius: 5px;
+  border: 2px solid var(--main-color);
+  box-shadow: 4px 4px var(--main-color);
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--bg-color);
+  transition: 0.3s;
+}
+
+.slider:before {
+  box-sizing: border-box;
+  position: absolute;
+  content: "";
+  height: 20px;
+  width: 20px;
+  border: 2px solid var(--main-color);
+  border-radius: 5px;
+  left: -2px;
+  bottom: 2px;
+  background-color: var(--square-color); /* Always use light mode color */
+  box-shadow: 0 3px 0 var(--main-color);
+  transition: 0.3s;
+}
+
+.toggle:checked + .slider {
+  background-color: var(--input-focus);
+}
+
+.toggle:checked + .slider:before {
+  transform: translateX(30px);
+}
+/* Position the toggle button in the header */
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 20px 40px;
-  background-color: #222; /* Dark background */
+  background-color: var(--background-color);
   background-image: linear-gradient(rgba(255, 215, 0, 0.1) 1px, transparent 1px), 
                     linear-gradient(90deg, rgba(255, 215, 0, 0.1) 1px, transparent 1px);
-  background-size: 20px 20px; /* Grid size */
-  backdrop-filter: blur(10px); /* Blur effect for modern touch */
-  border-bottom: 4px solid #ffd700; /* Retro gold border */
+  background-size: 20px 20px;
+  backdrop-filter: blur(10px);
+  border-bottom: 4px solid var(--accent-color);
   position: sticky;
   top: 0;
   z-index: 1000;
-  box-shadow: 
-    0 2px 10px rgba(0, 0, 0, 0.3), /* Shadow on scroll */
-    0 0 0 4px #000; /* Outer black outline */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3), 0 0 0 4px var(--border-color);
 }
 
 .logo-text {
   font-size: 36px;
   font-weight: 600;
-  color: #ffd700; /* Retro gold text color */
-  font-family: 'Playfair Display', serif; /* Retro serif font */
+  color: var(--accent-color);
+  font-family: 'Playfair Display', serif;
   letter-spacing: 3px;
   text-transform: uppercase;
-  text-shadow: 
-    2px 2px 0 #000; /* Simple black shadow for cell-shaded effect */
+  text-shadow: 2px 2px 0 var(--border-color);
   transition: all 0.3s ease;
 }
 
 .logo-text:hover {
-  transform: scale(1.05); /* Slight zoom on hover */
-  text-shadow: 
-    2px 2px 0 #000, /* Simple black shadow for cell-shaded effect */
-    0 0 15px rgba(255, 215, 0, 0.8); /* Stronger glow on hover */
+  transform: scale(1.05);
+  text-shadow: 2px 2px 0 var(--border-color), 0 0 15px var(--accent-color);
+}
+.purple-n {
+  color: #A35C7A; /* Muted purple color */
+  text-shadow: 2px 2px 0 var(--border-color); /* Match the shadow of the logo text */
 }
 
 /* Navigation Styles */
@@ -59,130 +138,118 @@ nav ul {
 
 nav ul li a {
   text-decoration: none;
-  color: #ffd700; /* Retro gold text color */
+  color: var(--accent-color);
   font-size: 16px;
-  font-family: 'Courier New', Courier, monospace; /* Retro font */
+  font-family: 'Courier New', Courier, monospace;
   font-weight: bold;
   padding: 8px 12px;
-  border: 2px solid #000; /* Black outline for cell-shaded effect */
+  border: 2px solid var(--border-color);
   border-radius: 4px;
   text-transform: uppercase;
   letter-spacing: 1px;
-  background-color: #ffd700; /* Retro gold background */
-  color: #1a1a1a; /* Dark text */
-  box-shadow: 
-    4px 4px 0 #9d8602; /* Simple shadow for depth */
+  background-color: var(--accent-color);
+  color: var(--background-color);
+  box-shadow: 4px 4px 0 #4a7a7a;
   transition: all 0.3s ease;
 }
 
 nav ul li a:hover {
-  background-color: #e6b800; /* Darker gold on hover */
-  box-shadow: 
-    4px 4px 0 #7b6801; /* Darker shadow on hover */
+  background-color: #e6b800;
+  box-shadow: 4px 4px 0 #7b6801;
 }
 
 nav ul li a:active {
-  transform: translateY(2px); /* Move the button down slightly */
-  box-shadow: 
-    2px 2px 0 #7b6801; /* Smaller shadow when clicked */
+  transform: translateY(2px);
+  box-shadow: 2px 2px 0 #7b6801;
 }
 
 /* Aim Section */
 .aim {
   padding: 80px 40px;
   text-align: center;
-  background-color: #1a1a1a; /* Dark background */
-  border: 4px solid #ffd700; /* Retro gold border */
-  border-radius: 10px; /* Rounded corners */
-  margin: 20px 0; /* Spacing around the section */
-  box-shadow: 
-    0 0 0 4px #000; /* Outer black outline */
+  background-color: var(--background-color);
+  border: 4px solid var(--accent-color);
+  border-radius: 10px;
+  margin: 20px 0;
+  box-shadow: 0 0 0 4px var(--border-color);
 }
 
 .aim h1 {
-  font-size: 48px; /* Heading size */
+  font-size: 48px;
   font-weight: 600;
-  color: #ffd700; /* Retro gold text color */
-  font-family: 'Playfair Display', serif; /* Retro serif font */
+  color: var(--accent-color);
+  font-family: 'Playfair Display', serif;
   margin-bottom: 20px;
-  text-transform: uppercase; /* Uppercase for retro vibe */
-  letter-spacing: 2px; /* Spaced-out letters */
-  text-shadow: 
-    2px 2px 0 #000; /* Simple black shadow for cell-shaded effect */
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 0 var(--border-color);
 }
 
 .aim p {
   font-size: 18px;
-  color: #f4f1de; /* Light retro text color */
+  color: var(--card-text);
   max-width: 800px;
   margin: 0 auto 40px;
-  line-height: 1.8; /* Better readability */
-  font-family: 'Courier New', Courier, monospace; /* Retro monospace font */
-  text-shadow: 
-    1px 1px 0 #000; /* Simple black shadow for cell-shaded effect */
+  line-height: 1.8;
+  font-family: 'Courier New', Courier, monospace;
+  text-shadow: 1px 1px 0 var(--border-color);
 }
 
 .aim .divider {
   width: 50%;
   height: 2px;
-  background-color: #ffd700; /* Retro accent color */
-  margin: 20px auto; /* Center-align divider */
-  box-shadow: 
-    1px 1px 0 #000; /* Simple black shadow for cell-shaded effect */
+  background-color: var(--accent-color);
+  margin: 20px auto;
+  box-shadow: 1px 1px 0 var(--border-color);
 }
 
 .cta-button {
-  color: #040404; /* Dark text */
+  color: var(--background-color);
   text-decoration: none;
   font-size: 17px;
-  font-family: 'Courier New', Courier, monospace; /* Retro monospace font */
+  font-family: 'Courier New', Courier, monospace;
   font-weight: bold;
-  background: #ffd700; /* Retro gold background */
-  border: 2px solid #000; /* Black outline for cell-shaded effect */
-  border-radius: 8px; /* Rounded corners */
+  background: var(--accent-color);
+  border: 2px solid var(--border-color);
+  border-radius: 8px;
   cursor: pointer;
-  padding: 12px 24px; /* Padding for size */
-  box-shadow: 
-    4px 4px 0 #9d8602; /* Simple shadow for depth */
-  text-transform: uppercase; /* Uppercase text */
-  letter-spacing: 1px; /* Spaced-out letters */
-  position: relative; /* Needed for the active state */
-  transition: all 0.1s ease-in-out; /* Smooth transition */
+  padding: 12px 24px;
+  box-shadow: 4px 4px 0 #4a7a7a;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+  transition: all 0.1s ease-in-out;
 }
 
 .cta-button:hover {
-  background: #e6b800; /* Darker gold on hover */
-  box-shadow: 
-    4px 4px 0 #7b6801; /* Darker shadow on hover */
+  background: #e6b800;
+  box-shadow: 4px 4px 0 #7b6801;
 }
 
 .cta-button:active {
-  box-shadow: 
-    2px 2px 0 #7b6801; /* Smaller shadow when clicked */
-  top: 2px; /* Move the button down slightly */
+  box-shadow: 2px 2px 0 #7b6801;
+  top: 2px;
 }
 
 /* Why Choose Us Section */
 .why-choose-us {
-  padding: 60px 40px; /* Spacing between sections */
-  background-color: #1a1a1a; /* Dark background */
+  padding: 60px 40px;
+  background-color: var(--background-color);
   text-align: center;
-  border-top: 4px solid #ffd700; /* Retro gold border */
-  border-bottom: 4px solid #ffd700; /* Retro gold border */
-  box-shadow: 
-    0 0 0 4px #000; /* Outer black outline */
+  border-top: 4px solid var(--accent-color);
+  border-bottom: 4px solid var(--accent-color);
+  box-shadow: 0 0 0 4px var(--border-color);
 }
 
 .why-choose-us h2 {
   font-size: 32px;
   font-weight: 600;
-  color: #ffd700; /* Retro gold text color */
-  font-family: 'Playfair Display', serif; /* Retro serif font */
-  text-transform: uppercase; /* Uppercase for retro vibe */
-  letter-spacing: 2px; /* Spaced-out letters */
+  color: var(--accent-color);
+  font-family: 'Playfair Display', serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
   margin-bottom: 40px;
-  text-shadow: 
-    2px 2px 0 #000; /* Simple black shadow for cell-shaded effect */
+  text-shadow: 2px 2px 0 var(--border-color);
 }
 
 .reasons-grid {
@@ -192,61 +259,56 @@ nav ul li a:active {
 }
 
 .reason {
-  background-color: #222; /* Dark card background */
+  background-color: var(--card-background);
   padding: 20px;
   border-radius: 8px;
   width: 300px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
-  border: 2px solid #000; /* Black outline for cell-shaded effect */
-  box-shadow: 
-    4px 4px 0 #ffd700; /* Simple gold shadow for depth */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 2px solid var(--border-color);
+  box-shadow: 4px 4px 0 var(--accent-color);
 }
 
 .reason:hover {
-  transform: translateY(-10px); /* Lift effect on hover */
+  transform: translateY(-10px);
 }
 
 .reason h3 {
   font-size: 20px;
-  color: #ffd700; /* Retro gold text color */
-  font-family: 'Courier New', Courier, monospace; /* Retro monospace font */
-  text-transform: uppercase; /* Uppercase for retro vibe */
-  letter-spacing: 1px; /* Spaced-out letters */
+  color: var(--accent-color);
+  font-family: 'Courier New', Courier, monospace;
+  text-transform: uppercase;
+  letter-spacing: 1px;
   margin-bottom: 10px;
-  text-shadow: 
-    1px 1px 0 #000; /* Simple black shadow for cell-shaded effect */
+  text-shadow: 1px 1px 0 var(--border-color);
 }
 
 .reason p {
   font-size: 14px;
-  color: #f4f1de; /* Light retro text color */
-  font-family: 'Courier New', Courier, monospace; /* Retro monospace font */
+  color: var(--card-text);
+  font-family: 'Courier New', Courier, monospace;
   line-height: 1.6;
-  text-shadow: 
-    1px 1px 0 #000; /* Simple black shadow for cell-shaded effect */
+  text-shadow: 1px 1px 0 var(--border-color);
 }
 
 /* Reading Stats Section */
 .reading-stats {
   padding: 60px 40px;
-  background-color: #1a1a1a; /* Dark background */
+  background-color: var(--background-color);
   text-align: center;
-  border-top: 4px solid #ffd700; /* Retro gold border */
-  border-bottom: 4px solid #ffd700; /* Retro gold border */
-  box-shadow: 
-    0 0 0 4px #000; /* Outer black outline */
+  border-top: 4px solid var(--accent-color);
+  border-bottom: 4px solid var(--accent-color);
+  box-shadow: 0 0 0 4px var(--border-color);
 }
 
 .reading-stats h2 {
   font-size: 32px;
   font-weight: 600;
-  color: #ffd700; /* Retro gold text color */
-  font-family: 'Playfair Display', serif; /* Retro serif font */
-  text-transform: uppercase; /* Uppercase for retro vibe */
-  letter-spacing: 2px; /* Spaced-out letters */
+  color: var(--accent-color);
+  font-family: 'Playfair Display', serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
   margin-bottom: 40px;
-  text-shadow: 
-    2px 2px 0 #000; /* Simple black shadow for cell-shaded effect */
+  text-shadow: 2px 2px 0 var(--border-color);
 }
 
 .stats-grid {
@@ -256,71 +318,65 @@ nav ul li a:active {
 }
 
 .stat {
-  background-color: #222; /* Dark card background */
+  background-color: var(--card-background);
   padding: 20px;
   border-radius: 8px;
   width: 250px;
   text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
-  border: 2px solid #000; /* Black outline for cell-shaded effect */
-  box-shadow: 
-    4px 4px 0 #ffd700; /* Simple gold shadow for depth */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 2px solid var(--border-color);
+  box-shadow: 4px 4px 0 var(--accent-color);
 }
 
 .stat:hover {
-  transform: translateY(-10px); /* Lift effect on hover */
+  transform: translateY(-10px);
 }
 
 .stat h3 {
   font-size: 36px;
-  color: #ffd700; /* Retro gold text color */
-  font-family: 'Courier New', Courier, monospace; /* Retro monospace font */
+  color: var(--accent-color);
+  font-family: 'Courier New', Courier, monospace;
   margin-bottom: 10px;
-  text-shadow: 
-    1px 1px 0 #000; /* Simple black shadow for cell-shaded effect */
+  text-shadow: 1px 1px 0 var(--border-color);
 }
 
 .stat p {
   font-size: 16px;
-  color: #f4f1de; /* Light retro text color */
-  font-family: 'Courier New', Courier, monospace; /* Retro monospace font */
+  color: var(--card-text);
+  font-family: 'Courier New', Courier, monospace;
   line-height: 1.6;
-  text-shadow: 
-    1px 1px 0 #000; /* Simple black shadow for cell-shaded effect */
+  text-shadow: 1px 1px 0 var(--border-color);
 }
 
 /* Reading Challenges Section */
 .reading-challenges {
   padding: 60px 40px;
-  background-color: #1a1a1a; /* Dark background */
+  background-color: var(--background-color);
   text-align: center;
-  border-top: 4px solid #ffd700; /* Retro gold border */
-  border-bottom: 4px solid #ffd700; /* Retro gold border */
-  box-shadow: 
-    0 0 0 4px #000; /* Outer black outline */
+  border-top: 4px solid var(--accent-color);
+  border-bottom: 4px solid var(--accent-color);
+  box-shadow: 0 0 0 4px var(--border-color);
 }
 
 .reading-challenges h2 {
   font-size: 32px;
   font-weight: 600;
-  color: #ffd700; /* Retro gold text color */
-  font-family: 'Playfair Display', serif; /* Retro serif font */
-  text-transform: uppercase; /* Uppercase for retro vibe */
-  letter-spacing: 2px; /* Spaced-out letters */
+  color: var(--accent-color);
+  font-family: 'Playfair Display', serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
   margin-bottom: 20px;
-  text-shadow: 
-    2px 2px 0 #000; /* Simple black shadow for cell-shaded effect */
+  text-shadow: 2px 2px 0 var(--border-color);
 }
 
 .reading-challenges p {
   font-size: 18px;
-  color: #f4f1de; /* Light retro text color */
-  font-family: 'Courier New', Courier, monospace; /* Retro monospace font */
+  color: var(--card-text);
+  font-family: 'Courier New', Courier, monospace;
   max-width: 800px;
   margin: 0 auto 40px;
   line-height: 1.6;
-  text-shadow: 
-    1px 1px 0 #000; /* Simple black shadow for cell-shaded effect */
+  text-shadow: 1px 1px 0 var(--border-color);
 }
 
 .challenge-grid {
@@ -330,92 +386,85 @@ nav ul li a:active {
 }
 
 .challenge {
-  background-color: #222; /* Dark card background */
+  background-color: var(--card-background);
   padding: 20px;
   border-radius: 8px;
   width: 300px;
   text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
-  border: 2px solid #000; /* Black outline for cell-shaded effect */
-  box-shadow: 
-    4px 4px 0 #ffd700; /* Simple gold shadow for depth */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 2px solid var(--border-color);
+  box-shadow: 4px 4px 0 var(--accent-color);
 }
 
 .challenge:hover {
-  transform: translateY(-10px); /* Lift effect on hover */
+  transform: translateY(-10px);
 }
 
 .challenge h3 {
   font-size: 24px;
-  color: #ffd700; /* Retro gold text color */
-  font-family: 'Courier New', Courier, monospace; /* Retro monospace font */
-  text-transform: uppercase; /* Uppercase for retro vibe */
-  letter-spacing: 1px; /* Spaced-out letters */
+  color: var(--accent-color);
+  font-family: 'Courier New', Courier, monospace;
+  text-transform: uppercase;
+  letter-spacing: 1px;
   margin-bottom: 10px;
-  text-shadow: 
-    1px 1px 0 #000; /* Simple black shadow for cell-shaded effect */
+  text-shadow: 1px 1px 0 var(--border-color);
 }
 
 .challenge p {
   font-size: 16px;
-  color: #f4f1de; /* Light retro text color */
-  font-family: 'Courier New', Courier, monospace; /* Retro monospace font */
+  color: var(--card-text);
+  font-family: 'Courier New', Courier, monospace;
   margin-bottom: 20px;
-  text-shadow: 
-    1px 1px 0 #000; /* Simple black shadow for cell-shaded effect */
+  text-shadow: 1px 1px 0 var(--border-color);
 }
 
 .challenge-link {
-  display: inline-block; /* Make it look like a button */
-  color: #040404; /* Dark text for contrast */
+  display: inline-block;
+  color: var(--background-color);
   text-decoration: none;
   font-size: 16px;
-  font-family: 'Courier New', Courier, monospace; /* Retro font */
+  font-family: 'Courier New', Courier, monospace;
   font-weight: bold;
-  background: #ffd700; /* Solid retro gold color */
-  border: 2px solid #000; /* Black outline for cell-shaded effect */
-  border-radius: 8px; /* Slightly rounded corners */
+  background: var(--accent-color);
+  border: 2px solid var(--border-color);
+  border-radius: 8px;
   cursor: pointer;
-  padding: 10px 20px; /* Slightly smaller padding for links */
-  box-shadow: 
-    4px 4px 0 #9d8602; /* Simple shadow for depth */
-  text-transform: uppercase; /* Uppercase text for a retro vibe */
-  letter-spacing: 1px; /* Spaced-out letters */
-  position: relative; /* Needed for the active state */
-  transition: all 0.1s ease-in-out; /* Smooth transition for active state */
-  margin-top: 10px; /* Space above the button */
+  padding: 10px 20px;
+  box-shadow: 4px 4px 0 #4a7a7a;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+  transition: all 0.1s ease-in-out;
+  margin-top: 10px;
 }
 
 .challenge-link:hover {
-  background: #e6b800; /* Darker gold on hover */
-  box-shadow: 
-    4px 4px 0 #7b6801; /* Darker shadow on hover */
+  background: #e6b800;
+  box-shadow: 4px 4px 0 #7b6801;
 }
 
 .challenge-link:active {
-  box-shadow: 
-    2px 2px 0 #7b6801; /* Smaller shadow when clicked */
-  top: 2px; /* Move the button down slightly */
+  box-shadow: 2px 2px 0 #7b6801;
+  top: 2px;
 }
 
 /* Footer */
 footer {
-  background-color: #1a1a1a; /* Dark background */
-  color: #f9f9f9;
+  background-color: var(--background-color);
+  color: var(--text-color);
   text-align: center;
   padding: 20px;
-  border-top: 4px solid #ffd700; /* Retro gold border */
-  font-family: 'Courier New', Courier, monospace; /* Retro monospace font */
-  box-shadow: 
-    0 0 0 4px #000; /* Outer black outline */
+  border-top: 4px solid var(--accent-color);
+  font-family: 'Courier New', Courier, monospace;
+  box-shadow: 0 0 0 4px var(--border-color);
 }
 
 footer p {
-  margin: 5px 0; /* Spacing between paragraphs */
+  margin: 5px 0;
   font-size: 14px;
-  color: #f4f1de; /* Light retro text color */
-  letter-spacing: 1px; /* Spaced-out letters */
-  text-shadow: 
-    1px 1px 0 #000; /* Simple black shadow for cell-shaded effect */
+  color: var(--card-text);
+  letter-spacing: 1px;
+  text-shadow: 1px 1px 0 var(--border-color);
 }
+
 

@@ -1,13 +1,94 @@
+:root {
+  --background-color: #2d2d2d; /* Dark charcoal gray background */
+  --text-color: #e0d7c7; /* Soft beige text */
+  --accent-color: #5f9ea0; /* Muted teal accent */
+  --card-background: #3a3a3a; /* Slightly lighter dark gray */
+  --card-text: #e0d7c7; /* Soft beige text */
+  --border-color: #000; /* Black border */
+}
+
+.light-mode {
+  --background-color: #f5f5dc; /* Soft beige background */
+  --text-color: #4a3f35; /* Dark brown text */
+  --accent-color: #5f9ea0; /* Same muted teal accent */
+  --card-background: #e0d7c7; /* Soft beige for cards */
+  --card-text: #4a3f35; /* Dark brown text for cards */
+  --border-color: #000; /* Black border (unchanged) */
+}
+
 /* Global Styles */
 body {
   margin: 0;
   font-family: 'Lato', sans-serif;
-  background-color: #1a1a1a; /* Dark background */
-  color: #f9f9f9; /* Light text color */
+  background-color: var(--background-color);
+  color: var(--text-color);
   line-height: 1.6;
-  box-shadow: 
-    0 0 0 4px #000; /* Outer black outline */
+  box-shadow: 0 0 0 4px var(--border-color);
 }
+/* Light/Dark Mode Toggle Button */
+.switch {
+  --input-focus: var(--accent-color); /* Use your accent color */
+  --font-color: var(--text-color); /* Use your text color */
+  --font-color-sub: var(--card-text); /* Use your card text color */
+  --bg-color: var(--background-color); /* Use your background color */
+  --bg-color-alt: var(--card-background); /* Use your card background color */
+  --main-color: var(--border-color); /* Use your border color */
+  --square-color: #f5f5dc; /* Light mode background color (soft beige) */
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  width: 50px;
+  height: 20px;
+  margin-left: -600px; /* Keep your existing position */
+}
+
+.toggle {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  box-sizing: border-box;
+  border-radius: 5px;
+  border: 2px solid var(--main-color);
+  box-shadow: 4px 4px var(--main-color);
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--bg-color);
+  transition: 0.3s;
+}
+
+.slider:before {
+  box-sizing: border-box;
+  position: absolute;
+  content: "";
+  height: 20px;
+  width: 20px;
+  border: 2px solid var(--main-color);
+  border-radius: 5px;
+  left: -2px;
+  bottom: 2px;
+  background-color: var(--square-color); /* Always use light mode color */
+  box-shadow: 0 3px 0 var(--main-color);
+  transition: 0.3s;
+}
+
+.toggle:checked + .slider {
+  background-color: var(--input-focus);
+}
+
+.toggle:checked + .slider:before {
+  transform: translateX(30px);
+}
+/* Position 
 
 /* Header */
 header {
@@ -15,38 +96,38 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 20px 40px;
-  background-color: #222; /* Dark background */
+  background-color: var(--background-color);
   background-image: linear-gradient(rgba(255, 215, 0, 0.1) 1px, transparent 1px), 
                     linear-gradient(90deg, rgba(255, 215, 0, 0.1) 1px, transparent 1px);
-  background-size: 20px 20px; /* Grid size */
-  backdrop-filter: blur(10px); /* Blur effect for modern touch */
-  border-bottom: 4px solid #ffd700; /* Retro gold border */
+  background-size: 20px 20px;
+  backdrop-filter: blur(10px);
+  border-bottom: 4px solid var(--accent-color);
   position: sticky;
   top: 0;
   z-index: 1000;
-  box-shadow: 
-    0 2px 10px rgba(0, 0, 0, 0.3), /* Shadow on scroll */
-    0 0 0 4px #000; /* Outer black outline */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3), 0 0 0 4px var(--border-color);
 }
 
 .logo-text {
   font-size: 36px;
   font-weight: 600;
-  color: #ffd700; /* Retro gold text color */
-  font-family: 'Playfair Display', serif; /* Retro serif font */
+  color: var(--accent-color);
+  font-family: 'Playfair Display', serif;
   letter-spacing: 3px;
   text-transform: uppercase;
-  text-shadow: 
-    2px 2px 0 #000; /* Simple black shadow for cell-shaded effect */
+  text-shadow: 2px 2px 0 var(--border-color);
   transition: all 0.3s ease;
 }
 
 .logo-text:hover {
-  transform: scale(1.05); /* Slight zoom on hover */
-  text-shadow: 
-    2px 2px 0 #000, /* Simple black shadow for cell-shaded effect */
-    0 0 15px rgba(255, 215, 0, 0.8); /* Stronger glow on hover */
+  transform: scale(1.05);
+  text-shadow: 2px 2px 0 var(--border-color), 0 0 15px var(--accent-color);
 }
+.purple-n {
+  color: #A35C7A; /* Muted purple color */
+  text-shadow: 2px 2px 0 var(--border-color); /* Match the shadow of the logo text */
+}
+
 
 /* Navigation Styles */
 nav ul {
@@ -59,57 +140,52 @@ nav ul {
 
 nav ul li a {
   text-decoration: none;
-  color: #ffd700; /* Retro gold text color */
+  color: var(--accent-color);
   font-size: 16px;
-  font-family: 'Courier New', Courier, monospace; /* Retro font */
+  font-family: 'Courier New', Courier, monospace;
   font-weight: bold;
   padding: 8px 12px;
-  border: 2px solid #000; /* Black outline for cell-shaded effect */
+  border: 2px solid var(--border-color);
   border-radius: 4px;
   text-transform: uppercase;
   letter-spacing: 1px;
-  background-color: #ffd700; /* Retro gold background */
-  color: #1a1a1a; /* Dark text */
-  box-shadow: 
-    4px 4px 0 #9d8602; /* Simple shadow for depth */
+  background-color: var(--accent-color);
+  color: var(--background-color);
+  box-shadow: 4px 4px 0 #4a7a7a;
   transition: all 0.3s ease;
 }
 
 nav ul li a:hover {
-  background-color: #e6b800; /* Darker gold on hover */
-  box-shadow: 
-    4px 4px 0 #7b6801; /* Darker shadow on hover */
+  background-color: #e6b800;
+  box-shadow: 4px 4px 0 #7b6801;
 }
 
 nav ul li a:active {
-  transform: translateY(2px); /* Move the button down slightly */
-  box-shadow: 
-    2px 2px 0 #7b6801; /* Smaller shadow when clicked */
+  transform: translateY(2px);
+  box-shadow: 2px 2px 0 #7b6801;
 }
+
 /* Book Reader Section */
 .book-reader {
   padding: 40px;
-  background-color: #1a1a1a; /* Dark background */
-  border: 4px solid #ffd700; /* Retro gold border */
-  border-radius: 10px; /* Rounded corners */
-  margin: 20px auto; /* Center-align and add spacing */
-  max-width: 800px; /* Limit width for better readability */
-  box-shadow: 
-    0 0 0 4px #000, /* Outer black outline */
-    0 4px 10px rgba(0, 0, 0, 0.3); /* Shadow for depth */
+  background-color: var(--background-color);
+  border: 4px solid var(--accent-color);
+  border-radius: 10px;
+  margin: 20px auto;
+  max-width: 800px;
+  box-shadow: 0 0 0 4px var(--border-color), 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
 #book-title {
   font-size: 36px;
   font-weight: 600;
-  color: #ffd700; /* Retro gold text color */
-  font-family: 'Playfair Display', serif; /* Retro serif font */
+  color: var(--accent-color);
+  font-family: 'Playfair Display', serif;
   text-align: center;
-  text-transform: uppercase; /* Uppercase for retro vibe */
-  letter-spacing: 2px; /* Spaced-out letters */
+  text-transform: uppercase;
+  letter-spacing: 2px;
   margin-bottom: 20px;
-  text-shadow: 
-    2px 2px 0 #000; /* Simple black shadow for cell-shaded effect */
+  text-shadow: 2px 2px 0 var(--border-color);
 }
 
 /* Buttons */
@@ -117,57 +193,49 @@ nav ul li a:active {
 #loadChapter2,
 #prev,
 #next {
-  color: #040404; /* Dark text */
-  background: #ffd700; /* Retro gold background */
-  border: 2px solid #000; /* Black outline for cell-shaded effect */
-  border-radius: 8px; /* Rounded corners */
+  color: var(--background-color);
+  background: var(--accent-color);
+  border: 2px solid var(--border-color);
+  border-radius: 8px;
   font-size: 16px;
-  font-family: 'Courier New', Courier, monospace; /* Retro monospace font */
+  font-family: 'Courier New', Courier, monospace;
   font-weight: bold;
-  padding: 10px 20px; /* Padding for size */
-  text-transform: uppercase; /* Uppercase text */
-  letter-spacing: 1px; /* Spaced-out letters */
+  padding: 10px 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
   cursor: pointer;
-  box-shadow: 
-    4px 4px 0 #9d8602; /* Simple shadow for depth */
-  transition: all 0.1s ease-in-out; /* Smooth transition */
-  margin: 5px; /* Space between buttons */
+  box-shadow: 4px 4px 0 #4a7a7a;
+  transition: all 0.1s ease-in-out;
+  margin: 5px;
 }
 
 #loadChapter1:hover,
 #loadChapter2:hover,
 #prev:hover,
 #next:hover {
-  background: #e6b800; /* Darker gold on hover */
-  box-shadow: 
-    4px 4px 0 #7b6801; /* Darker shadow on hover */
+  background: #e6b800;
+  box-shadow: 4px 4px 0 #7b6801;
 }
 
 #loadChapter1:active,
 #loadChapter2:active,
 #prev:active,
 #next:active {
-  box-shadow: 
-    2px 2px 0 #7b6801; /* Smaller shadow when clicked */
-  transform: translateY(2px); /* Move the button down slightly */
+  box-shadow: 2px 2px 0 #7b6801;
+  transform: translateY(2px);
 }
 
 /* Content Area */
 #content {
   font-size: 18px;
-  color: #f4f1de; /* Light retro text color */
-  font-family: 'Courier New', Courier, monospace; /* Retro monospace font */
-  line-height: 1.6; /* Better readability */
+  color: var(--text-color);
+  font-family: 'Courier New', Courier, monospace;
+  line-height: 1.6;
   padding: 20px;
-  background-color: #222; /* Dark card background */
-  border: 2px solid #000; /* Black outline for cell-shaded effect */
-  border-radius: 8px; /* Rounded corners */
-  margin: 20px 0; /* Spacing around the content */
-  box-shadow: 
-    4px 4px 0 #ffd700; /* Simple gold shadow for depth */
-  text-shadow: 
-    1px 1px 0 #000; /* Simple black shadow for cell-shaded effect */
+  background-color: var(--card-background);
+  border: 2px solid var(--border-color);
+  border-radius: 8px;
+  margin: 20px 0;
+  box-shadow: 4px 4px 0 var(--accent-color);
+  text-shadow: 1px 1px 0 var(--border-color);
 }
-
-
-
