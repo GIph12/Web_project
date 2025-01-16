@@ -1,5 +1,5 @@
 
-// File paths for Chapter 1 and Chapter 2
+// File paths
 const chapterFiles = {
   chapter1: 'chapter1.txt',
   chapter2: 'chapter2.txt',
@@ -45,7 +45,7 @@ function displayPage() {
 
 
 
-// Event listeners for loading chapters
+//  loading chapters
 document.getElementById('loadChapter1').addEventListener('click', () => {
   loadChapter(chapterFiles.chapter1);
 });
@@ -54,7 +54,7 @@ document.getElementById('loadChapter2').addEventListener('click', () => {
   loadChapter(chapterFiles.chapter2);
 });
 
-// Event listeners for navigation
+//  navigation
 document.getElementById('prev').addEventListener('click', () => {
   if (currentPage > 0) {
     currentPage--;

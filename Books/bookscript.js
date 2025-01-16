@@ -1,4 +1,3 @@
-// Wait for the DOM to load
 document.addEventListener('DOMContentLoaded', function () {
   // Theme Toggle Logic
   const toggleButton = document.getElementById('theme-toggle');
@@ -8,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function () {
  
   } 
 
-  // Function to set the theme
+  //  to set the theme
   function setTheme(theme) {
     if (theme === 'light') {
       document.documentElement.classList.add('light-mode');
@@ -19,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function () {
    
   }
 
-  // Function to toggle the theme
+  //  to toggle the theme
   function toggleTheme() {
     if (document.documentElement.classList.contains('light-mode')) {
       setTheme('dark');
@@ -28,14 +27,13 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
 
-  // Function to load the saved theme
+  //  to load the saved theme
   function loadTheme() {
     const savedTheme = localStorage.getItem('theme') || 'dark';
     setTheme(savedTheme);
     
   }
 
-  // Load the theme when the page loads
   loadTheme();
 });
 

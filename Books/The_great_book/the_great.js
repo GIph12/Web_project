@@ -1,6 +1,5 @@
 
-
-// File paths for Chapter 1 and Chapter 2
+// File paths 
 const chapterFiles = {
   chapter1: 'Chapter1.txt',
   chapter2: 'Chapter2.txt',
@@ -9,7 +8,7 @@ const chapterFiles = {
 let currentChapter = null; // Stores the current chapter content
 let currentPage = 0; // Tracks the current page
 let pages = []; // Stores the split pages of the current chapter
-const wordsPerPage = 400; // Adjust this to control how many words per page
+const wordsPerPage = 400; 
 
 // Load a chapter from a file
 function loadChapter(filePath) {
@@ -25,7 +24,7 @@ function loadChapter(filePath) {
     .catch((error) => console.error('Error loading chapter:', error));
 }
 
-// Split chapter content into pages
+// Split  content into pages
 function splitIntoPages(text, wordsPerPage) {
   const words = text.split(' ');
   const pages = [];
@@ -43,7 +42,7 @@ function displayPage() {
 
 
 
-// Event listeners for loading chapters
+//  for loading chapters
 document.getElementById('loadChapter1').addEventListener('click', () => {
   loadChapter(chapterFiles.chapter1);
 });
@@ -52,7 +51,7 @@ document.getElementById('loadChapter2').addEventListener('click', () => {
   loadChapter(chapterFiles.chapter2);
 });
 
-// Event listeners for navigation
+//  for nav
 document.getElementById('prev').addEventListener('click', () => {
   if (currentPage > 0) {
     currentPage--;

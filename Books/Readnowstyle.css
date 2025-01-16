@@ -1,22 +1,21 @@
 :root {
-  --background-color: #2d2d2d; /* Dark charcoal gray background */
-  --text-color: #e0d7c7; /* Soft beige text */
-  --accent-color: #5f9ea0; /* Muted teal accent */
-  --card-background: #3a3a3a; /* Slightly lighter dark gray */
-  --card-text: #e0d7c7; /* Soft beige text */
-  --border-color: #000; /* Black border */
+  --background-color: #2d2d2d; 
+  --text-color: #e0d7c7; 
+  --accent-color: #5f9ea0; 
+  --card-background: #3a3a3a; 
+  --card-text: #e0d7c7; 
+  --border-color: #000;
 }
 
 .light-mode {
-  --background-color: #f5f5dc; /* Soft beige background */
-  --text-color: #4a3f35; /* Dark brown text */
-  --accent-color: #5f9ea0; /* Same muted teal accent */
-  --card-background: #e0d7c7; /* Soft beige for cards */
-  --card-text: #4a3f35; /* Dark brown text for cards */
-  --border-color: #000; /* Black border (unchanged) */
+  --background-color: #f5f5dc; 
+  --text-color: #4a3f35; 
+  --accent-color: #5f9ea0; 
+  --card-background: #e0d7c7; 
+  --card-text: #4a3f35; 
+  --border-color: #000; 
 }
 
-/* Global Styles */
 body {
   margin: 0;
   font-family: 'Lato', sans-serif;
@@ -25,15 +24,15 @@ body {
   line-height: 1.6;
   box-shadow: 0 0 0 4px var(--border-color);
 }
-/* Light/Dark Mode Toggle Button */
+
 .switch {
-  --input-focus: var(--accent-color); /* Use your accent color */
-  --font-color: var(--text-color); /* Use your text color */
-  --font-color-sub: var(--card-text); /* Use your card text color */
-  --bg-color: var(--background-color); /* Use your background color */
-  --bg-color-alt: var(--card-background); /* Use your card background color */
-  --main-color: var(--border-color); /* Use your border color */
-  --square-color: #f5f5dc; /* Light mode background color (soft beige) */
+  --input-focus: var(--accent-color);
+  --font-color: var(--text-color); 
+  --font-color-sub: var(--card-text); 
+  --bg-color: var(--background-color); 
+  --bg-color-alt: var(--card-background); 
+  --main-color: var(--border-color); 
+  --square-color: #f5f5dc; 
   position: relative;
   display: flex;
   flex-direction: column;
@@ -42,7 +41,7 @@ body {
   gap: 30px;
   width: 50px;
   height: 20px;
-  margin-left: -600px; /* Keep your existing position */
+  margin-left: -600px; 
 }
 
 .toggle {
@@ -76,7 +75,7 @@ body {
   border-radius: 5px;
   left: -2px;
   bottom: 2px;
-  background-color: var(--square-color); /* Always use light mode color */
+  background-color: var(--square-color); 
   box-shadow: 0 3px 0 var(--main-color);
   transition: 0.3s;
 }
@@ -88,7 +87,7 @@ body {
 .toggle:checked + .slider:before {
   transform: translateX(30px);
 }
-/* Position 
+ 
 
 /* Header */
 header {
@@ -124,8 +123,8 @@ header {
   text-shadow: 2px 2px 0 var(--border-color), 0 0 15px var(--accent-color);
 }
 .purple-n {
-  color: #A35C7A; /* Muted purple color */
-  text-shadow: 2px 2px 0 var(--border-color); /* Match the shadow of the logo text */
+  color: #A35C7A; 
+  text-shadow: 2px 2px 0 var(--border-color); 
 }
 
 
